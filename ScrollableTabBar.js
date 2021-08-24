@@ -125,7 +125,7 @@ const ScrollableTabBar = createReactClass({
   },
 
   renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
-    const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
+    const { activeTextColor, inactiveTextColor, textStyle, renderLeft } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
 
@@ -137,7 +137,8 @@ const ScrollableTabBar = createReactClass({
       onPress={() => onPressHandler(page)}
       onLayout={onLayoutHandler}
     >
-      <View style={[styles.tab, this.props.tabStyle, ]}>
+      <View style={[styles.tab, this.props.tabStyle,{flexDirection: 'row'} ]}>
+        {renderLeft && renderLeft(page)}
         <Text style={[{color: textColor, fontWeight, }, textStyle, ]}>
           {name}
         </Text>
