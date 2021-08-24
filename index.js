@@ -14,7 +14,7 @@ const {
 } = ReactNative;
 
 const TimerMixin = require('react-timer-mixin');
-const ViewPager = require('react-native-pager-view');
+let ViewPager = require('react-native-pager-view');
 if(typeof ViewPager === 'object' && typeof ViewPager.default === 'function') {
   ViewPager = ViewPager.default;
 }
